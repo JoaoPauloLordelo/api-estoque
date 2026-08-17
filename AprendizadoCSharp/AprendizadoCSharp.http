@@ -1,0 +1,6 @@
+@AprendizadoCSharp_HostAddress = http://localhost:5208
+
+GET {{AprendizadoCSharp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
