@@ -44,7 +44,7 @@ namespace AprendizadoCSharp.Application.Controllers
             return CreatedAtAction(nameof(GetStock), new { id = stock.Id }, stock.toGetStockDTO());
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("{id}")]
         public IActionResult UpdateStock([FromRoute] long id, [FromBody] UpdateStockDTO stockDTO) 
         {
