@@ -1,4 +1,6 @@
-﻿using AprendizadoCSharp.Domain.Stock.Models;
+﻿using AprendizadoCSharp.Application.DTOs.Stock;
+using AprendizadoCSharp.Application.Mappers;
+using AprendizadoCSharp.Domain.Stock.Models;
 using AprendizadoCSharp.Infrasctucture.Context;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +19,7 @@ namespace AprendizadoCSharp.Application.Controllers
         [HttpGet]
         public IActionResult GetAllStocks()
         {
-            List<Stock> stocks = _context.Stocks.ToList();
+            List<GetStockDTO> stocks = _context.Stocks.ToList().Select(s => s.toGetStockDTO()).ToList();
             return Ok(stocks);
         }
 
@@ -29,7 +31,32 @@ namespace AprendizadoCSharp.Application.Controllers
             {
                 return NotFound();
             }
-            return Ok(stock);
+            return Ok(stock.toGetStockDTO());
+
+        }
+
+        [HttpPost]
+        public IActionResult CreateStock([FromBody] CreateStockDTO stockDTO)
+        {
+            Stock stock = stockDTO.toStockFromCreateDTO();
+            _context.Stocks.Add(stock);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(GetStock), new { id = stock.Id }, stock.toGetStockDTO());
+        }
+
+        [HttpPost]
+        [Route("{id}")]
+        public IActionResult UpdateStock([FromRoute] long id, [FromBody] UpdateStockDTO stockDTO) 
+        {
+            Stock? stock = _context.Stocks.FirstOrDefault(s => s.Id == id);
+            if (stock == null)
+            {
+                return NotFound();
+            }
+
+            stock.updateStockFromDTO(stockDTO);
+            _context.SaveChanges();
+            return Ok(stock.toGetStockDTO());
 
         }
     }
