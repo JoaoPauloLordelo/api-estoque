@@ -44,11 +44,10 @@ namespace AprendizadoCSharp.Application.Controllers
             return CreatedAtAction(nameof(GetStock), new { id = stock.Id }, stock.toGetStockDTO());
         }
 
-        [HttpPut]
-        [Route("{id}")]
+        [HttpPut("{id}")]
         public IActionResult UpdateStock([FromRoute] long id, [FromBody] UpdateStockDTO stockDTO) 
         {
-            Stock? stock = _context.Stocks.FirstOrDefault(s => s.Id == id);
+            Stock? stock = _context.Stocks.Find(id);
             if (stock == null)
             {
                 return NotFound();
