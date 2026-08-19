@@ -1,5 +1,5 @@
-﻿using AprendizadoCSharp.Application.DTOs.Stock;
-using AprendizadoCSharp.Domain.Stock.Models;
+﻿using AprendizadoCSharp.Application.DTOs.Stocks;
+using AprendizadoCSharp.Domain.Stocks.Models;
 
 namespace AprendizadoCSharp.Application.Mappers
 {

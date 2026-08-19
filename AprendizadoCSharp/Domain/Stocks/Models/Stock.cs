@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AprendizadoCSharp.Domain.Stock.Models {
+namespace AprendizadoCSharp.Domain.Stocks.Models {
 
     public class Stock
     {

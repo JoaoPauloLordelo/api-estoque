@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace AprendizadoCSharp.Domain.Stock.Models
+﻿namespace AprendizadoCSharp.Domain.Stocks.Models
 { 
     public class Comment
     {

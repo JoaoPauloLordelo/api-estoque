@@ -1,4 +1,4 @@
-﻿using AprendizadoCSharp.Domain.Stock.Models;
+﻿using AprendizadoCSharp.Domain.Stocks.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AprendizadoCSharp.Infrasctucture.Context

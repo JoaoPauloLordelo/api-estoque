@@ -1,13 +1,8 @@
-﻿using AprendizadoCSharp.Domain.Stock.Models;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace AprendizadoCSharp.Application.DTOs.Stock
+﻿namespace AprendizadoCSharp.Application.DTOs.Stocks
 {
-    public record GetStockDTO
+    public class UpdateStockDTO
     {
-        public long Id { get; set; }
         public string Symbol { get; set; } = string.Empty;
-
         public string CompanyName { get; set; } = string.Empty;
         public decimal Purchase { get; set; }
         public decimal LastDiv { get; set; }

@@ -1,8 +1,10 @@
-﻿namespace AprendizadoCSharp.Application.DTOs.Stock
+﻿namespace AprendizadoCSharp.Application.DTOs.Stocks
 {
-    public class UpdateStockDTO
+    public record GetStockDTO
     {
+        public long Id { get; set; }
         public string Symbol { get; set; } = string.Empty;
+
         public string CompanyName { get; set; } = string.Empty;
         public decimal Purchase { get; set; }
         public decimal LastDiv { get; set; }

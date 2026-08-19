@@ -1,4 +1,4 @@
-﻿namespace AprendizadoCSharp.Application.DTOs.Stock
+﻿namespace AprendizadoCSharp.Application.DTOs.Stocks
 {
     public class CreateStockDTO
     {
